@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0 → Shipped Resume Parser</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#">0<span class="logo-arrow">→</span>Shipped</a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a class="btn btn-small" href="#upload">Try it</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <p class="hero-eyebrow">Resume Parser · Mock Build</p>
+    <h1>Know what your resume <span class="accent">actually</span> says.</h1>
+    <p class="hero-sub">
+      Upload a PDF, get a score out of 100, see which skills the parser found
+      and which ones it expected but never saw.
+    </p>
+
+    <section class="upload-card" id="upload">
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload a PDF resume">
+        <input type="file" id="file-input" accept="application/pdf" hidden />
+        <div class="dropzone-icon" id="dropzone-icon">📄</div>
+        <p class="dropzone-title" id="dropzone-title">Drop your resume here</p>
+        <p class="dropzone-hint" id="dropzone-hint">or <span class="browse">browse files</span> · PDF only</p>
+      </div>
+
+      <div class="status" id="status" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p id="status-text">Reading PDF…</p>
+      </div>
+
+      <p class="error" id="error" hidden></p>
+    </section>
+
+    <p class="privacy-note">Mock build — nothing is uploaded. Results are simulated in your browser.</p>
+  </header>
+
+  <section class="results" id="results" hidden>
+    <div class="results-inner">
+
+      <div class="score-panel">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120" width="160" height="160" aria-hidden="true">
+            <circle class="ring-track" cx="60" cy="60" r="52" />
+            <circle class="ring-value" id="ring-value" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="score-label">
+            <span class="score-number" id="score-number">0</span>
+            <span class="score-of">/100</span>
+          </div>
+        </div>
+        <div class="score-copy">
+          <h2 id="score-verdict">—</h2>
+          <p id="score-summary">—</p>
+          <p class="file-meta" id="file-meta"></p>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-col present">
+          <h3>✅ Skills present <span class="count" id="present-count"></span></h3>
+          <div class="chips" id="present-chips"></div>
+        </div>
+        <div class="skill-col missing">
+          <h3>⚠️ Skills missing <span class="count" id="missing-count"></span></h3>
+          <div class="chips" id="missing-chips"></div>
+        </div>
+      </div>
+
+      <button class="btn btn-ghost" id="reset-btn">Analyze another resume</button>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <h2>How it works</h2>
+    <div class="how-grid">
+      <div class="how-step">
+        <span class="how-num">1</span>
+        <h3>Upload</h3>
+        <p>Drop in your resume as a PDF. In the real build, every page gets extracted to text.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-num">2</span>
+        <h3>Parse</h3>
+        <p>Sections are detected, then matched against a skills dictionary the parser was built on.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-num">3</span>
+        <h3>Score</h3>
+        <p>You get a 0–100 score plus two lists: skills found, and gaps worth closing.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>0 → Shipped Resume Parser · a mock build — no backend, no uploads.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
